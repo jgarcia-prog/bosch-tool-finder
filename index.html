@@ -3,34 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1A7FD4">
+<meta name="theme-color" content="#E2001A">
 <meta name="description" content="Encuentra la herramienta Bosch perfecta para tu trabajo en menos de 2 minutos">
-<title>Bosch Tool Finder — CAMEcuador</title>
+<title>Bosch Tool Finder — Cofersa</title>
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bosch-blue: #1A7FD4;
-    --bosch-blue-dark: #1265B0;
-    --bosch-blue-light: #3FA2F0;
-    --bosch-blue-vivid: #0EA5E9;
     --bosch-red: #E2001A;
+    --bosch-red-dark: #B80016;
+    --bosch-red-light: #FF3333;
+    --bosch-red-vivid: #FF1A2E;
     --bosch-yellow: #FFBE00;
     --bosch-yellow-soft: #FFD54F;
-    --neutral-900: #0F1923;
-    --neutral-800: #172130;
-    --neutral-700: #1E2E40;
-    --neutral-600: #2A3F55;
-    --neutral-200: #C8DCF0;
-    --neutral-100: #E4F0FB;
-    --neutral-50: #F0F7FF;
+    --neutral-950: #111318;
+    --neutral-900: #1A1D23;
+    --neutral-800: #22262E;
+    --neutral-700: #2E333D;
+    --neutral-600: #3D4451;
+    --neutral-200: #D0D4DC;
+    --neutral-100: #EAECF0;
+    --neutral-50: #F5F6F8;
     --white: #FFFFFF;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,.12);
-    --shadow-md: 0 8px 32px rgba(26,127,212,.2);
-    --shadow-lg: 0 20px 60px rgba(26,127,212,.28);
-    --radius: 14px;
-    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.2);
+    --shadow-md: 0 8px 32px rgba(226,0,26,.18);
+    --shadow-lg: 0 20px 60px rgba(226,0,26,.25);
+    --radius: 10px;
+    --radius-lg: 16px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,8 +39,7 @@
 
   body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(160deg, #0F1923 0%, #172A40 50%, #0F1F32 100%);
-    background-attachment: fixed;
+    background: #1A1D23;
     color: var(--white);
     min-height: 100vh;
     overflow-x: hidden;
@@ -51,8 +50,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(26,127,212,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(26,127,212,.06) 1px, transparent 1px);
+      linear-gradient(rgba(226,0,26,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(226,0,26,.04) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
@@ -61,21 +60,21 @@
     position: fixed;
     width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(26,127,212,.18) 0%, rgba(63,162,240,.06) 50%, transparent 70%);
-    top: -250px; right: -150px;
+    background: radial-gradient(circle, rgba(226,0,26,.12) 0%, rgba(180,0,20,.04) 50%, transparent 70%);
+    top: -300px; right: -200px;
     pointer-events: none;
     z-index: 0;
-    animation: pulse-glow 6s ease-in-out infinite;
+    animation: pulse-glow 7s ease-in-out infinite;
   }
   .bg-glow2 {
     position: fixed;
-    width: 500px; height: 500px;
+    width: 400px; height: 400px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(14,165,233,.1) 0%, transparent 70%);
-    bottom: -150px; left: -100px;
+    background: radial-gradient(circle, rgba(226,0,26,.07) 0%, transparent 70%);
+    bottom: -100px; left: -80px;
     pointer-events: none;
     z-index: 0;
-    animation: pulse-glow 8s ease-in-out infinite reverse;
+    animation: pulse-glow 9s ease-in-out infinite reverse;
   }
   @keyframes pulse-glow {
     0%,100% { opacity:.6; transform: scale(1); }
@@ -97,10 +96,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
-    border-bottom: 1px solid rgba(63,162,240,.15);
+    border-bottom: 1px solid rgba(226,0,26,.15);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    background: rgba(15,25,35,.75);
+    background: rgba(17,19,24,.88);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -112,7 +111,7 @@
   }
   .logo-icon {
     width: 40px; height: 40px;
-    background: linear-gradient(135deg, var(--bosch-blue), var(--bosch-blue-vivid));
+    background: linear-gradient(135deg, var(--bosch-red), var(--bosch-red-dark));
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -123,7 +122,7 @@
     letter-spacing: -0.5px;
     color: white;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(26,127,212,.4);
+    box-shadow: 0 4px 12px rgba(226,0,26,.4);
   }
   .logo-text {
     font-family: 'Roboto Condensed', sans-serif;
@@ -161,10 +160,10 @@
   }
   .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--bosch-blue), var(--bosch-blue-light), var(--bosch-yellow));
+    background: linear-gradient(90deg, var(--bosch-red-dark), var(--bosch-red), var(--bosch-yellow));
     border-radius: 2px;
     transition: width .5s cubic-bezier(.4,0,.2,1);
-    box-shadow: 0 0 8px rgba(63,162,240,.5);
+    box-shadow: 0 0 8px rgba(226,0,26,.5);
   }
 
   /* ===== MAIN CONTENT ===== */
@@ -193,8 +192,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(26,127,212,.2);
-    border: 1px solid rgba(63,162,240,.35);
+    background: rgba(226,0,26,.15);
+    border: 1px solid rgba(226,0,26,.3);
     border-radius: 20px;
     padding: 7px 16px;
     font-size: 11px;
@@ -204,7 +203,7 @@
     color: rgba(255,255,255,.75);
     margin-bottom: 28px;
   }
-  .hero-badge span { color: var(--bosch-yellow); }
+  .hero-badge span { color: var(--bosch-red-light); }
   .hero-title {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
@@ -219,7 +218,7 @@
   }
   .hero-title em {
     font-style: normal;
-    background: linear-gradient(90deg, var(--bosch-blue-light), var(--bosch-yellow-soft));
+    background: linear-gradient(90deg, var(--bosch-red-light), var(--bosch-yellow));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -257,7 +256,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, var(--bosch-blue), var(--bosch-blue-vivid));
+    background: linear-gradient(135deg, var(--bosch-red), var(--bosch-red-dark));
     color: white;
     border: none;
     border-radius: var(--radius);
@@ -269,7 +268,7 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all .25s ease;
-    box-shadow: 0 8px 28px rgba(26,127,212,.45);
+    box-shadow: 0 8px 28px rgba(226,0,26,.45);
     position: relative;
     overflow: hidden;
   }
@@ -282,7 +281,7 @@
     transition: left .4s ease;
   }
   .btn-start:hover::before { left: 100%; }
-  .btn-start:hover { background: linear-gradient(135deg, var(--bosch-blue-light), #38bdf8); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(26,127,212,.55); }
+  .btn-start:hover { background: linear-gradient(135deg, var(--bosch-red-light), var(--bosch-red)); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(226,0,26,.55); }
   .btn-start:active { transform: translateY(0); }
   .btn-arrow { font-size: 20px; transition: transform .2s; }
   .btn-start:hover .btn-arrow { transform: translateX(5px); }
@@ -293,7 +292,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--bosch-blue-light);
+    color: var(--bosch-red-light);
     margin-bottom: 12px;
   }
   .question-title {
@@ -335,15 +334,15 @@
     touch-action: manipulation;
   }
   .option-card:hover {
-    border-color: var(--bosch-blue-light);
-    background: rgba(26,127,212,.14);
+    border-color: var(--bosch-red-light);
+    background: rgba(226,0,26,.1);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
   .option-card.selected {
-    border-color: var(--bosch-blue-vivid);
-    background: rgba(26,127,212,.22);
-    box-shadow: 0 0 0 3px rgba(63,162,240,.25), var(--shadow-md);
+    border-color: var(--bosch-red);
+    background: rgba(226,0,26,.16);
+    box-shadow: 0 0 0 3px rgba(226,0,26,.2), var(--shadow-md);
   }
   .option-icon {
     font-size: 28px;
@@ -375,9 +374,9 @@
     transition: all .2s;
   }
   .option-card.selected .option-check {
-    background: linear-gradient(135deg, var(--bosch-blue), var(--bosch-blue-vivid));
-    border-color: var(--bosch-blue-vivid);
-    box-shadow: 0 2px 8px rgba(14,165,233,.4);
+    background: linear-gradient(135deg, var(--bosch-red), var(--bosch-red-dark));
+    border-color: var(--bosch-red-light);
+    box-shadow: 0 2px 8px rgba(226,0,26,.4);
   }
   .option-card.selected .option-check::after {
     content: '';
@@ -418,7 +417,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, var(--bosch-blue), var(--bosch-blue-vivid));
+    background: linear-gradient(135deg, var(--bosch-red), var(--bosch-red-dark));
     color: white;
     border: none;
     border-radius: var(--radius);
@@ -430,7 +429,7 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all .2s;
-    box-shadow: 0 4px 16px rgba(26,127,212,.3);
+    box-shadow: 0 4px 16px rgba(226,0,26,.3);
     opacity: .35;
     pointer-events: none;
   }
@@ -438,7 +437,7 @@
     opacity: 1;
     pointer-events: auto;
   }
-  .btn-next.enabled:hover { background: linear-gradient(135deg, var(--bosch-blue-light), #38bdf8); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,127,212,.45); }
+  .btn-next.enabled:hover { background: linear-gradient(135deg, var(--bosch-red-light), var(--bosch-red)); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(226,0,26,.45); }
 
   /* ===== LOADING SCREEN ===== */
   .loading-wrap {
@@ -448,18 +447,18 @@
   .loading-icon {
     width: 80px; height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--bosch-blue), var(--bosch-blue-vivid));
+    background: linear-gradient(135deg, var(--bosch-red), var(--bosch-red-dark));
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 24px;
     font-size: 36px;
     animation: spin-pulse 1.5s ease-in-out infinite;
-    box-shadow: 0 0 50px rgba(26,127,212,.55);
+    box-shadow: 0 0 50px rgba(226,0,26,.55);
   }
   @keyframes spin-pulse {
-    0%,100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 50px rgba(26,127,212,.55); }
-    50% { transform: scale(1.05) rotate(180deg); box-shadow: 0 0 70px rgba(63,162,240,.8); }
+    0%,100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 50px rgba(226,0,26,.55); }
+    50% { transform: scale(1.05) rotate(180deg); box-shadow: 0 0 70px rgba(226,0,26,.8); }
   }
   .loading-title {
     font-family: 'Roboto Condensed', sans-serif;
@@ -480,7 +479,7 @@
   .loading-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: var(--bosch-blue-vivid);
+    background: var(--bosch-red);
     animation: dot-bounce .8s ease infinite;
   }
   .loading-dot:nth-child(2) { animation-delay: .15s; }
@@ -498,7 +497,7 @@
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--bosch-blue-light);
+    color: var(--bosch-red-light);
     font-weight: 500;
     margin-bottom: 8px;
   }
@@ -538,8 +537,8 @@
     gap: 6px;
     margin-bottom: 14px;
     padding: 10px 14px;
-    background: linear-gradient(135deg, rgba(26,127,212,.15), rgba(14,165,233,.08));
-    border: 1px solid rgba(63,162,240,.2);
+    background: linear-gradient(135deg, rgba(226,0,26,.12), rgba(180,0,20,.06));
+    border: 1px solid rgba(226,0,26,.2);
     border-radius: 10px;
   }
   .card-price {
@@ -554,7 +553,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: var(--bosch-blue-light);
+    color: var(--bosch-red-light);
   }
   .card-price-ivi {
     font-size: 11px;
@@ -573,7 +572,7 @@
     position: relative;
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, rgba(26,127,212,.12), rgba(14,165,233,.06));
+    background: linear-gradient(135deg, rgba(226,0,26,.1), rgba(180,0,20,.04));
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -604,7 +603,7 @@
   .card-image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 55%, rgba(10,20,35,.7) 100%);
+    background: linear-gradient(to bottom, transparent 55%, rgba(20,10,10,.7) 100%);
     pointer-events: none;
   }
   .card-image-badge {
@@ -622,9 +621,9 @@
     color: var(--neutral-900);
   }
   .card-image-badge.alt {
-    background: rgba(26,127,212,.6);
+    background: rgba(226,0,26,.6);
     color: rgba(200,220,255,.9);
-    border: 1px solid rgba(63,162,240,.4);
+    border: 1px solid rgba(226,0,26,.4);
     backdrop-filter: blur(4px);
   }
   .card-img-gallery-btn {
@@ -633,7 +632,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    background: rgba(10,20,35,.7);
+    background: rgba(17,19,24,.75);
     border: 1px solid rgba(255,255,255,.15);
     border-radius: 20px;
     padding: 5px 12px;
@@ -646,8 +645,8 @@
     cursor: pointer;
   }
   .card-img-gallery-btn:hover {
-    background: rgba(26,127,212,.7);
-    border-color: rgba(63,162,240,.5);
+    background: rgba(226,0,26,.7);
+    border-color: rgba(255,50,50,.5);
     color: white;
   }
 
@@ -660,7 +659,7 @@
     position: absolute;
     top: 0; left: 0;
     width: 4px; height: 100%;
-    background: linear-gradient(180deg, var(--bosch-blue-light), var(--bosch-blue-vivid));
+    background: linear-gradient(180deg, var(--bosch-red-light), var(--bosch-red-dark));
     border-radius: 0 2px 2px 0;
   }
   .product-card.top-pick::before {
@@ -668,8 +667,8 @@
     width: 5px;
   }
   .product-card:hover {
-    border-color: rgba(63,162,240,.4);
-    background: rgba(26,127,212,.1);
+    border-color: rgba(226,0,26,.4);
+    background: rgba(226,0,26,.06);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
   }
@@ -694,9 +693,9 @@
     color: var(--neutral-900);
   }
   .card-badge.alt {
-    background: rgba(26,127,212,.25);
+    background: rgba(226,0,26,.25);
     color: rgba(200,220,255,.8);
-    border: 1px solid rgba(63,162,240,.35);
+    border: 1px solid rgba(226,0,26,.3);
   }
   .card-modelo {
     font-family: 'Roboto Condensed', sans-serif;
@@ -708,8 +707,8 @@
   }
   .card-tipo {
     font-size: 12px;
-    color: var(--bosch-blue-light);
-    font-weight: 500;
+    color: var(--bosch-red);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .8px;
     margin-bottom: 6px;
@@ -765,7 +764,7 @@
   }
   .score-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--bosch-blue-light), var(--bosch-blue-vivid), var(--bosch-yellow-soft));
+    background: linear-gradient(90deg, var(--bosch-red-dark), var(--bosch-red), var(--bosch-yellow));
     border-radius: 2px;
   }
   .score-label {
@@ -776,8 +775,8 @@
 
   /* Match reason */
   .match-reason {
-    background: rgba(26,127,212,.12);
-    border: 1px solid rgba(63,162,240,.2);
+    background: rgba(226,0,26,.08);
+    border: 1px solid rgba(226,0,26,.18);
     border-radius: 10px;
     padding: 10px 14px;
     font-size: 13px;
@@ -785,7 +784,7 @@
     line-height: 1.5;
     margin-top: 10px;
   }
-  .match-reason strong { color: var(--bosch-blue-vivid); }
+  .match-reason strong { color: var(--bosch-red-light); }
 
   /* No results */
   .no-results {
@@ -818,7 +817,7 @@
     transition: all .2s;
     margin-top: 8px;
   }
-  .btn-restart:hover { border-color: var(--bosch-blue-light); color: var(--bosch-blue-vivid); }
+  .btn-restart:hover { border-color: var(--bosch-red-light); color: var(--bosch-red-light); }
 
   /* ===== FOOTER ===== */
   .app-footer {
@@ -827,7 +826,7 @@
     font-size: 11px;
     color: rgba(255,255,255,.25);
     letter-spacing: .5px;
-    border-top: 1px solid rgba(63,162,240,.08);
+    border-top: 1px solid rgba(226,0,26,.08);
   }
 
   /* ===== RESPONSIVE — TABLET (768px) ===== */
@@ -1217,13 +1216,13 @@ function nextQuestion() {
     selectedValue = answers[QUESTIONS[currentQuestion].id] || null;
     renderQuestion();
   } else {
-    // Last question answered — show results
+    // Show loading screen FIRST, then compute on next frame
     showScreen('screenLoading');
     setTimeout(() => {
       const results = computeResults();
       renderResults(results);
       showScreen('screenResults');
-    }, 1800);
+    }, 50);
   }
 }
 
@@ -1266,36 +1265,54 @@ function renderQuestion() {
 }
 
 // ============================================================
-//  MATCHING ENGINE
+//  PRE-INDEXED LOOKUP for fast matching (built once at startup)
+// ============================================================
+const INDEXED = PRODUCTS_RAW.map(p => ({
+  p,
+  tipo: (p.tipo  || '').toLowerCase(),
+  usos: (p.usos  || '').toLowerCase(),
+  fuente: (p.fuente || '').toLowerCase(),
+  voltaje: String(p.voltaje || '').toLowerCase(),
+  potencia: parseInt(p.potencia) || 0,
+  desc: (p.descripcion || '').toLowerCase(),
+  modelo: (p.modelo || '').toLowerCase(),
+}));
+
+// ============================================================
+//  MATCHING ENGINE  (runs in < 5ms on 130 products)
 // ============================================================
 function computeResults() {
   const a = answers;
-  let scored = PRODUCTS_RAW.map(p => {
-    let score = 0;
-    const tipo = (p.tipo || '').toLowerCase();
-    const usos = (p.usos || '').toLowerCase();
-    const fuente = (p.fuente || '').toLowerCase();
-    const voltaje = String(p.voltaje || '').toLowerCase();
-    const potencia = parseInt(p.potencia) || 0;
-    const desc = (p.descripcion || '').toLowerCase();
-    const modelo = (p.modelo || '').toLowerCase();
+  const uso   = a.uso_principal;
+  const tarea = a.tarea_especifica;
+  const mat   = a.material;
+  const alim  = a.alimentacion;
+  const vol   = a.voltaje;
+  const freq  = a.frecuencia;
+  const esp   = a.espacio;
+  const pres  = a.presupuesto;
 
-    // --- uso_principal ---
-    const uso = a.uso_principal;
+  const scored = [];
+
+  for (const {p, tipo, usos, fuente, voltaje, potencia, desc, modelo} of INDEXED) {
+    if (!p.enMatriz) continue;  // skip non-catalog products immediately
+
+    let score = 0;
+
+    // uso_principal
     if (uso === 'madera') {
-      if (usos.includes('madera') || tipo.includes('sierra') || tipo.includes('cepillo') || tipo.includes('lijadora') || tipo.includes('fresadora')) score += 3;
+      if (usos.includes('madera') || tipo.includes('sierra') || tipo.includes('cepillo') || tipo.includes('lijadora') || tipo.includes('fresadora') || tipo.includes('router')) score += 3;
     } else if (uso === 'concreto') {
       if (usos.includes('concreto') || usos.includes('albañil') || tipo.includes('martillo') || tipo.includes('rotomartillo') || tipo.includes('perforador')) score += 3;
     } else if (uso === 'metal') {
-      if (usos.includes('metal') || usos.includes('metalmec') || tipo.includes('esmeril') || tipo.includes('cizalla') || tipo.includes('cortadora')) score += 3;
+      if (usos.includes('metal') || usos.includes('metalmec') || tipo.includes('esmeril') || tipo.includes('cizalla') || tipo.includes('cortadora') || tipo.includes('rectificadora')) score += 3;
     } else if (uso === 'instalacion') {
       if (usos.includes('electric') || usos.includes('instalad') || usos.includes('plomero') || tipo.includes('taladro') || tipo.includes('atornillad')) score += 3;
-    } else if (uso === 'mixto') {
-      score += 1; // universal
+    } else {
+      score += 1;
     }
 
-    // --- tarea_especifica ---
-    const tarea = a.tarea_especifica;
+    // tarea_especifica
     if (tarea === 'perforar') {
       if (tipo.includes('taladro') || tipo.includes('rotomartillo') || tipo.includes('perforador')) score += 3;
     } else if (tarea === 'cortar') {
@@ -1310,76 +1327,58 @@ function computeResults() {
       if (tipo.includes('aspirad') || tipo.includes('linterna') || tipo.includes('fresadora') || tipo.includes('vibrador')) score += 2;
     }
 
-    // --- material ---
-    const mat = a.material;
+    // material
     if (mat === 'madera' && usos.includes('madera')) score += 2;
-    if (mat === 'concreto' && (usos.includes('concreto') || usos.includes('mampost'))) score += 2;
-    if (mat === 'acero' && (usos.includes('metal') || usos.includes('acero'))) score += 2;
-    if (mat === 'ceramica' && (usos.includes('cerám') || usos.includes('piedra') || usos.includes('mármol'))) score += 2;
-    if (mat === 'mixto') score += 1;
+    else if (mat === 'concreto' && (usos.includes('concreto') || usos.includes('mampost'))) score += 2;
+    else if (mat === 'acero' && (usos.includes('metal') || usos.includes('acero'))) score += 2;
+    else if (mat === 'ceramica' && (usos.includes('cerám') || usos.includes('piedra'))) score += 2;
+    else if (mat === 'mixto') score += 1;
 
-    // --- alimentacion ---
-    const alim = a.alimentacion;
-    if (alim === 'bateria' && fuente === 'batería') score += 3;
-    if (alim === 'cable' && fuente === 'cable') score += 3;
-    if (alim === 'indiferente') score += 1;
+    // alimentacion
+    if      (alim === 'bateria' && fuente === 'batería') score += 3;
+    else if (alim === 'cable'   && fuente === 'cable')   score += 3;
+    else if (alim === 'indiferente') score += 1;
 
-    // --- voltaje ---
-    const vol = a.voltaje;
-    if (vol === '12v' && (voltaje.includes('12') || voltaje === '12')) score += 2;
-    if (vol === '18v' && (voltaje.includes('18'))) score += 2;
-    if (vol === 'alta' && potencia >= 500) score += 2;
-    if (vol === 'indiferente') score += 1;
+    // voltaje
+    if      (vol === '12v' && voltaje.includes('12')) score += 2;
+    else if (vol === '18v' && voltaje.includes('18')) score += 2;
+    else if (vol === 'alta' && potencia >= 500)       score += 2;
+    else if (vol === 'indiferente') score += 1;
 
-    // --- frecuencia ---
-    const freq = a.frecuencia;
+    // frecuencia
     if (freq === 'profesional') {
-      if (desc.includes('professional') || modelo.includes('gbh') || modelo.includes('gws') || fuente === 'cable' || parseInt(voltaje) >= 18) score += 2;
+      if (fuente === 'cable' || parseInt(voltaje) >= 18 || desc.includes('biturbo') || desc.includes('brushless')) score += 2;
     } else if (freq === 'regular') {
       score += 1;
     } else if (freq === 'ocasional') {
-      if (fuente === 'batería' && (voltaje.includes('12') || voltaje === '12')) score += 2;
+      if (fuente === 'batería' && voltaje.includes('12')) score += 2;
     }
 
-    // --- espacio ---
-    const esp = a.espacio;
-    if (esp === 'obra' && fuente === 'batería') score += 2;
-    if (esp === 'taller' && fuente === 'cable') score += 1;
-    if (esp === 'altura' && fuente === 'batería') score += 2;
+    // espacio
+    if      (esp === 'obra'   && fuente === 'batería') score += 2;
+    else if (esp === 'taller' && fuente === 'cable')   score += 1;
+    else if (esp === 'altura' && fuente === 'batería') score += 2;
 
-    // --- presupuesto ---
-    const pres = a.presupuesto;
-    if (pres === 'premium') {
-      if (desc.includes('biturbo') || desc.includes('brushless') || modelo.match(/pro|hd|plus/i)) score += 2;
-    }
-    if (pres === 'indiferente') score += 1;
+    // presupuesto
+    if (pres === 'premium' && (desc.includes('biturbo') || desc.includes('brushless') || /pro|hd|plus/i.test(modelo))) score += 2;
+    else if (pres === 'indiferente') score += 1;
 
-    // Only include products available in the Matriz Bosch (validated catalog with price)
-    if (!p.enMatriz) {
-      score = -1;
-    }
+    // exclude accessories/batteries
+    if (tipo.includes('cargador') || tipo.includes('batería') || tipo.includes('accesorio') || tipo.includes('maleta') || tipo.includes('módulo') || tipo.includes('sistema') || tipo.includes('starter')) score = 0;
 
-    // Filter out non-tools
-    if (tipo.includes('cargador') || tipo.includes('batería') || tipo.includes('accesorio') || tipo.includes('maleta') || tipo.includes('módulo') || tipo.includes('sistema')) {
-      score = Math.max(-1, score - 5);
-    }
+    if (score > 0) scored.push({...p, score});
+  }
 
-    return { ...p, score };
-  });
-
-  // Sort by score descending, deduplicate by modelo
+  // Sort + deduplicate by modelo, top 5
   scored.sort((a, b) => b.score - a.score);
   const seen = new Set();
-  const deduped = [];
+  const result = [];
   for (const p of scored) {
     const key = p.modelo || p.sku;
-    if (!seen.has(key) && p.score > 0 && p.enMatriz) {
-      seen.add(key);
-      deduped.push(p);
-    }
-    if (deduped.length >= 5) break;
+    if (!seen.has(key)) { seen.add(key); result.push(p); }
+    if (result.length >= 5) break;
   }
-  return deduped;
+  return result;
 }
 
 // ============================================================
@@ -1390,19 +1389,19 @@ function getToolSVG(tipo) {
   // Drill / taladro
   if (t.includes('taladro') || t.includes('rotomartillo') || t.includes('perforador') || t.includes('rotomatillo')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="34" width="44" height="12" rx="4" fill="#1A7FD4" opacity=".8"/>
-      <rect x="52" y="30" width="20" height="20" rx="6" fill="#0EA5E9"/>
-      <rect x="4" y="37" width="10" height="6" rx="2" fill="#3FA2F0"/>
-      <circle cx="64" cy="40" r="6" fill="#1A7FD4"/>
-      <rect x="70" y="38" width="8" height="4" rx="1" fill="#3FA2F0"/>
+      <rect x="8" y="34" width="44" height="12" rx="4" fill="#E2001A" opacity=".8"/>
+      <rect x="52" y="30" width="20" height="20" rx="6" fill="#C8000F"/>
+      <rect x="4" y="37" width="10" height="6" rx="2" fill="#FF3333"/>
+      <circle cx="64" cy="40" r="6" fill="#E2001A"/>
+      <rect x="70" y="38" width="8" height="4" rx="1" fill="#FF3333"/>
       <rect x="26" y="46" width="14" height="10" rx="3" fill="#FFBE00"/>
     </svg>`;
   }
   // Grinder / esmeril
   if (t.includes('esmeril') || t.includes('amoladora') || t.includes('pulidora') || t.includes('rectificadora')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="28" width="50" height="16" rx="5" fill="#1A7FD4" opacity=".85"/>
-      <circle cx="64" cy="50" r="14" fill="#0EA5E9" stroke="#3FA2F0" stroke-width="2"/>
+      <rect x="10" y="28" width="50" height="16" rx="5" fill="#E2001A" opacity=".85"/>
+      <circle cx="64" cy="50" r="14" fill="#C8000F" stroke="#3FA2F0" stroke-width="2"/>
       <circle cx="64" cy="50" r="8" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 3"/>
       <circle cx="64" cy="50" r="3" fill="white"/>
       <rect x="6" y="32" width="12" height="8" rx="3" fill="#FFBE00"/>
@@ -1411,17 +1410,17 @@ function getToolSVG(tipo) {
   // Hammer / martillo
   if (t.includes('martillo') || t.includes('demoledor')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="30" y="12" width="24" height="36" rx="5" fill="#1A7FD4" opacity=".85"/>
-      <rect x="20" y="16" width="40" height="20" rx="6" fill="#0EA5E9"/>
-      <rect x="36" y="48" width="8" height="24" rx="3" fill="#3FA2F0"/>
+      <rect x="30" y="12" width="24" height="36" rx="5" fill="#E2001A" opacity=".85"/>
+      <rect x="20" y="16" width="40" height="20" rx="6" fill="#C8000F"/>
+      <rect x="36" y="48" width="8" height="24" rx="3" fill="#FF3333"/>
       <rect x="20" y="20" width="8" height="12" rx="2" fill="#FFBE00" opacity=".8"/>
     </svg>`;
   }
   // Saw / sierra
   if (t.includes('sierra') || t.includes('tronzadora') || t.includes('caladora')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="30" width="48" height="14" rx="4" fill="#1A7FD4" opacity=".85"/>
-      <path d="M56 30 L72 22 L72 52 L56 44Z" fill="#0EA5E9"/>
+      <rect x="8" y="30" width="48" height="14" rx="4" fill="#E2001A" opacity=".85"/>
+      <path d="M56 30 L72 22 L72 52 L56 44Z" fill="#C8000F"/>
       <path d="M56 37 L72 37" stroke="#3FA2F0" stroke-width="2"/>
       <rect x="4" y="33" width="10" height="8" rx="2" fill="#FFBE00"/>
       <path d="M14 44 L18 48 L22 44 L26 48 L30 44 L34 48 L38 44 L42 48 L46 44 L50 48 L54 44" stroke="white" stroke-width="2" fill="none"/>
@@ -1430,70 +1429,70 @@ function getToolSVG(tipo) {
   // Sander / lijadora
   if (t.includes('lijadora') || t.includes('lixadeira')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="14" y="22" width="52" height="28" rx="8" fill="#1A7FD4" opacity=".85"/>
-      <rect x="14" y="46" width="52" height="10" rx="4" fill="#0EA5E9"/>
-      <rect x="20" y="26" width="40" height="16" rx="4" fill="#172A40"/>
-      <circle cx="28" cy="34" r="3" fill="#3FA2F0" opacity=".7"/>
-      <circle cx="40" cy="34" r="3" fill="#3FA2F0" opacity=".7"/>
-      <circle cx="52" cy="34" r="3" fill="#3FA2F0" opacity=".7"/>
+      <rect x="14" y="22" width="52" height="28" rx="8" fill="#E2001A" opacity=".85"/>
+      <rect x="14" y="46" width="52" height="10" rx="4" fill="#C8000F"/>
+      <rect x="20" y="26" width="40" height="16" rx="4" fill="#1A1D23"/>
+      <circle cx="28" cy="34" r="3" fill="#FF3333" opacity=".7"/>
+      <circle cx="40" cy="34" r="3" fill="#FF3333" opacity=".7"/>
+      <circle cx="52" cy="34" r="3" fill="#FF3333" opacity=".7"/>
     </svg>`;
   }
   // Impact wrench / llave impacto
   if (t.includes('llave') || t.includes('impacto') || t.includes('atornillad')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="12" y="30" width="40" height="14" rx="4" fill="#1A7FD4" opacity=".85"/>
-      <rect x="52" y="26" width="16" height="22" rx="5" fill="#0EA5E9"/>
+      <rect x="12" y="30" width="40" height="14" rx="4" fill="#E2001A" opacity=".85"/>
+      <rect x="52" y="26" width="16" height="22" rx="5" fill="#C8000F"/>
       <rect x="8" y="33" width="8" height="8" rx="2" fill="#FFBE00"/>
-      <circle cx="60" cy="37" r="5" fill="#1A7FD4"/>
-      <rect x="65" y="35" width="8" height="4" rx="1" fill="#3FA2F0"/>
-      <rect x="24" y="44" width="16" height="10" rx="3" fill="#172A40"/>
+      <circle cx="60" cy="37" r="5" fill="#E2001A"/>
+      <rect x="65" y="35" width="8" height="4" rx="1" fill="#FF3333"/>
+      <rect x="24" y="44" width="16" height="10" rx="3" fill="#1A1D23"/>
     </svg>`;
   }
   // Router / fresadora
   if (t.includes('fresadora') || t.includes('router')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="36" r="22" fill="#1A7FD4" opacity=".8"/>
-      <circle cx="40" cy="36" r="14" fill="#0EA5E9"/>
-      <rect x="36" y="50" width="8" height="18" rx="2" fill="#3FA2F0"/>
+      <circle cx="40" cy="36" r="22" fill="#E2001A" opacity=".8"/>
+      <circle cx="40" cy="36" r="14" fill="#C8000F"/>
+      <rect x="36" y="50" width="8" height="18" rx="2" fill="#FF3333"/>
       <circle cx="40" cy="36" r="5" fill="white" opacity=".6"/>
     </svg>`;
   }
   // Oscillating / multicortadora
   if (t.includes('multicort') || t.includes('oscilante')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="24" y="12" width="20" height="40" rx="8" fill="#1A7FD4" opacity=".85"/>
-      <path d="M24 52 L12 68 L56 68 L44 52Z" fill="#0EA5E9"/>
-      <rect x="28" y="16" width="12" height="24" rx="4" fill="#172A40"/>
+      <rect x="24" y="12" width="20" height="40" rx="8" fill="#E2001A" opacity=".85"/>
+      <path d="M24 52 L12 68 L56 68 L44 52Z" fill="#C8000F"/>
+      <rect x="28" y="16" width="12" height="24" rx="4" fill="#1A1D23"/>
       <circle cx="34" cy="28" r="4" fill="#FFBE00"/>
     </svg>`;
   }
   // Vacuum / aspiradora
   if (t.includes('aspirad')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="40" cy="38" rx="24" ry="22" fill="#1A7FD4" opacity=".85"/>
-      <ellipse cx="40" cy="38" rx="16" ry="14" fill="#0EA5E9"/>
-      <rect x="56" y="34" width="16" height="8" rx="3" fill="#3FA2F0"/>
+      <ellipse cx="40" cy="38" rx="24" ry="22" fill="#E2001A" opacity=".85"/>
+      <ellipse cx="40" cy="38" rx="16" ry="14" fill="#C8000F"/>
+      <rect x="56" y="34" width="16" height="8" rx="3" fill="#FF3333"/>
       <circle cx="40" cy="38" r="5" fill="white" opacity=".5"/>
     </svg>`;
   }
   // Jigsaw / caladora
   if (t.includes('caladora')) {
     return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="16" y="20" width="44" height="22" rx="6" fill="#1A7FD4" opacity=".85"/>
-      <rect x="20" y="42" width="36" height="6" rx="2" fill="#0EA5E9"/>
-      <rect x="36" y="48" width="8" height="22" rx="2" fill="#3FA2F0"/>
+      <rect x="16" y="20" width="44" height="22" rx="6" fill="#E2001A" opacity=".85"/>
+      <rect x="20" y="42" width="36" height="6" rx="2" fill="#C8000F"/>
+      <rect x="36" y="48" width="8" height="22" rx="2" fill="#FF3333"/>
       <path d="M36 58 L44 58" stroke="white" stroke-width="1.5"/>
-      <rect x="22" y="24" width="20" height="10" rx="3" fill="#172A40"/>
+      <rect x="22" y="24" width="20" height="10" rx="3" fill="#1A1D23"/>
     </svg>`;
   }
   // Default — generic power tool
   return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="28" width="48" height="16" rx="5" fill="#1A7FD4" opacity=".8"/>
-    <rect x="50" y="22" width="18" height="28" rx="6" fill="#0EA5E9"/>
+    <rect x="10" y="28" width="48" height="16" rx="5" fill="#E2001A" opacity=".8"/>
+    <rect x="50" y="22" width="18" height="28" rx="6" fill="#C8000F"/>
     <rect x="6" y="31" width="10" height="10" rx="3" fill="#FFBE00"/>
-    <circle cx="59" cy="36" r="7" fill="#1A7FD4"/>
-    <rect x="66" y="33" width="6" height="6" rx="1" fill="#3FA2F0"/>
-    <rect x="22" y="44" width="20" height="10" rx="3" fill="#172A40"/>
+    <circle cx="59" cy="36" r="7" fill="#E2001A"/>
+    <rect x="66" y="33" width="6" height="6" rx="1" fill="#FF3333"/>
+    <rect x="22" y="44" width="20" height="10" rx="3" fill="#1A1D23"/>
   </svg>`;
 }
 
