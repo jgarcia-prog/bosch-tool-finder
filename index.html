@@ -302,9 +302,15 @@ body { font-family:'Roboto',sans-serif; background:var(--white); color:var(--gra
   overflow:hidden; position:relative;
   border-bottom:1px solid var(--gray-100);
 }
+.card-illustration {
+  width:100%; height:100%; position:absolute; inset:0;
+}
+.card-illustration svg {
+  width:100%; height:100%; display:block;
+}
 .card-img {
   width:100%; height:100%; object-fit:contain; padding:16px;
-  transition:transform .3s ease;
+  transition:transform .3s ease, opacity .3s ease;
 }
 .card-img-fallback {
   display:flex; flex-direction:column;
@@ -916,128 +922,45 @@ function computeResults() {
 // ============================================================
 //  TOOL CATEGORY SVG ICONS (fallback when image fails)
 // ============================================================
-function getToolSVG(tipo) {
+// ============================================================
+//  HIGH-QUALITY TOOL ILLUSTRATIONS + IMAGE LOADER
+// ============================================================
+function getToolIllustration(tipo) {
   const t = (tipo || '').toLowerCase();
-  // Drill / taladro
-  if (t.includes('taladro') || t.includes('rotomartillo') || t.includes('perforador') || t.includes('rotomatillo')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="34" width="44" height="12" rx="4" fill="#E2001A" opacity=".8"/>
-      <rect x="52" y="30" width="20" height="20" rx="6" fill="#C8000F"/>
-      <rect x="4" y="37" width="10" height="6" rx="2" fill="#FF3333"/>
-      <circle cx="64" cy="40" r="6" fill="#E2001A"/>
-      <rect x="70" y="38" width="8" height="4" rx="1" fill="#FF3333"/>
-      <rect x="26" y="46" width="14" height="10" rx="3" fill="#FFBE00"/>
-    </svg>`;
+
+  if (t.includes('taladro') || t.includes('rotomartillo') || t.includes('perforador')) {
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8F4FD"/><stop offset="100%" stop-color="#D0E8F8"/></linearGradient><linearGradient id="bd1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg1)" rx="8"/><rect x="20" y="74" width="38" height="12" rx="3" fill="#555"/><rect x="14" y="77" width="10" height="6" rx="1" fill="#888"/><rect x="8" y="78" width="8" height="4" rx="1" fill="#aaa"/><rect x="58" y="62" width="74" height="36" rx="8" fill="url(#bd1)"/><rect x="58" y="74" width="74" height="6" fill="#E2001A" opacity=".9"/><rect x="52" y="66" width="14" height="28" rx="4" fill="#2a2a2a"/><rect x="110" y="67" width="3" height="4" rx="1" fill="#1a4080"/><rect x="116" y="67" width="3" height="4" rx="1" fill="#1a4080"/><rect x="122" y="67" width="3" height="4" rx="1" fill="#1a4080"/><path d="M108 98 Q118 110 112 130 Q106 140 96 138 Q86 136 88 122 Q90 110 100 98Z" fill="url(#bd1)"/><rect x="88" y="130" width="28" height="14" rx="4" fill="#1a3a6a"/><rect x="92" y="133" width="8" height="8" rx="1" fill="#38bdf8" opacity=".8"/><rect x="103" y="133" width="8" height="8" rx="1" fill="#38bdf8" opacity=".8"/><rect x="100" y="104" width="6" height="14" rx="3" fill="#111"/><circle cx="136" cy="76" r="8" fill="#0a2a5a"/><circle cx="136" cy="76" r="5" fill="#1565c0"/><text x="68" y="94" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Grinder / esmeril
   if (t.includes('esmeril') || t.includes('amoladora') || t.includes('pulidora') || t.includes('rectificadora')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="28" width="50" height="16" rx="5" fill="#E2001A" opacity=".85"/>
-      <circle cx="64" cy="50" r="14" fill="#C8000F" stroke="#3FA2F0" stroke-width="2"/>
-      <circle cx="64" cy="50" r="8" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 3"/>
-      <circle cx="64" cy="50" r="3" fill="white"/>
-      <rect x="6" y="32" width="12" height="8" rx="3" fill="#FFBE00"/>
-    </svg>`;
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFF0F0"/><stop offset="100%" stop-color="#FFE0E0"/></linearGradient><linearGradient id="bd2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg2)" rx="8"/><circle cx="52" cy="110" r="32" fill="#333"/><circle cx="52" cy="110" r="28" fill="#555" stroke="#777" stroke-width="1"/><circle cx="52" cy="110" r="18" fill="#444"/><circle cx="52" cy="110" r="5" fill="#888"/><path d="M24 85 Q52 70 80 85 L80 110 Q52 118 24 110Z" fill="#1a1a1a" opacity=".85"/><rect x="72" y="68" width="90" height="34" rx="8" fill="url(#bd2)"/><rect x="72" y="78" width="90" height="6" fill="#E2001A" opacity=".9"/><rect x="154" y="72" width="30" height="26" rx="6" fill="#0D3F7A"/><rect x="158" y="76" width="22" height="18" rx="4" fill="#1E5FA8"/><rect x="88" y="62" width="10" height="14" rx="4" fill="#333"/><rect x="120" y="70" width="3" height="5" rx="1" fill="#0a2a5a"/><rect x="126" y="70" width="3" height="5" rx="1" fill="#0a2a5a"/><rect x="132" y="70" width="3" height="5" rx="1" fill="#0a2a5a"/><text x="82" y="92" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Hammer / martillo
   if (t.includes('martillo') || t.includes('demoledor')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="30" y="12" width="24" height="36" rx="5" fill="#E2001A" opacity=".85"/>
-      <rect x="20" y="16" width="40" height="20" rx="6" fill="#C8000F"/>
-      <rect x="36" y="48" width="8" height="24" rx="3" fill="#FF3333"/>
-      <rect x="20" y="20" width="8" height="12" rx="2" fill="#FFBE00" opacity=".8"/>
-    </svg>`;
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0F5FF"/><stop offset="100%" stop-color="#E0ECFF"/></linearGradient><linearGradient id="bd3" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#0D3F7A"/><stop offset="100%" stop-color="#1E5FA8"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg3)" rx="8"/><rect x="16" y="77" width="42" height="8" rx="2" fill="#666"/><polygon points="16,77 12,81 16,85" fill="#888"/><rect x="52" y="72" width="16" height="18" rx="3" fill="#222"/><rect x="62" y="38" width="46" height="90" rx="10" fill="url(#bd3)"/><rect x="62" y="74" width="46" height="8" fill="#E2001A"/><path d="M68 38 Q85 22 102 38" stroke="#0D3F7A" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M108 80 Q128 80 128 95 Q128 118 108 118 L108 128 Q68 128 68 128 L68 118 Q88 118 88 95 Q88 80 108 80Z" fill="url(#bd3)"/><rect x="88" y="98" width="8" height="16" rx="4" fill="#111"/><rect x="65" y="46" width="40" height="3" rx="1" fill="#0a2a5a" opacity=".6"/><rect x="65" y="52" width="40" height="3" rx="1" fill="#0a2a5a" opacity=".6"/><text x="68" y="94" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Saw / sierra
-  if (t.includes('sierra') || t.includes('tronzadora') || t.includes('caladora')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="30" width="48" height="14" rx="4" fill="#E2001A" opacity=".85"/>
-      <path d="M56 30 L72 22 L72 52 L56 44Z" fill="#C8000F"/>
-      <path d="M56 37 L72 37" stroke="#3FA2F0" stroke-width="2"/>
-      <rect x="4" y="33" width="10" height="8" rx="2" fill="#FFBE00"/>
-      <path d="M14 44 L18 48 L22 44 L26 48 L30 44 L34 48 L38 44 L42 48 L46 44 L50 48 L54 44" stroke="white" stroke-width="2" fill="none"/>
-    </svg>`;
+  if (t.includes('sierra circular') || t.includes('tronzadora') || t.includes('sierra de inglete')) {
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFAF0"/><stop offset="100%" stop-color="#FFF0D8"/></linearGradient><linearGradient id="bd4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg4)" rx="8"/><circle cx="70" cy="105" r="38" fill="#2a2a2a"/><circle cx="70" cy="105" r="34" fill="#3a3a3a" stroke="#555" stroke-width="1"/><circle cx="70" cy="105" r="36" fill="none" stroke="#666" stroke-width="4" stroke-dasharray="4 4"/><circle cx="70" cy="105" r="10" fill="#555"/><circle cx="70" cy="105" r="5" fill="#888"/><path d="M36 72 Q70 55 104 72 L108 105 Q70 115 32 105Z" fill="#111" opacity=".9"/><rect x="30" y="128" width="90" height="6" rx="2" fill="#1a1a1a"/><rect x="88" y="68" width="72" height="38" rx="8" fill="url(#bd4)"/><rect x="88" y="80" width="72" height="6" fill="#E2001A" opacity=".9"/><path d="M120 68 Q140 48 158 68" stroke="#0D3F7A" stroke-width="9" fill="none" stroke-linecap="round"/><rect x="128" y="74" width="6" height="18" rx="3" fill="#111"/><text x="96" y="94" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Sander / lijadora
-  if (t.includes('lijadora') || t.includes('lixadeira')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="14" y="22" width="52" height="28" rx="8" fill="#E2001A" opacity=".85"/>
-      <rect x="14" y="46" width="52" height="10" rx="4" fill="#C8000F"/>
-      <rect x="20" y="26" width="40" height="16" rx="4" fill="#1A1D23"/>
-      <circle cx="28" cy="34" r="3" fill="#FF3333" opacity=".7"/>
-      <circle cx="40" cy="34" r="3" fill="#FF3333" opacity=".7"/>
-      <circle cx="52" cy="34" r="3" fill="#FF3333" opacity=".7"/>
-    </svg>`;
+  if (t.includes('caladora') || t.includes('sierra sable') || t.includes('sierra reciproca')) {
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0FFF4"/><stop offset="100%" stop-color="#E0F8E8"/></linearGradient><linearGradient id="bd5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg5)" rx="8"/><rect x="78" y="108" width="8" height="36" rx="2" fill="#666"/><path d="M78 140 L74 152 L82 152 L86 140Z" fill="#777"/><path d="M78 115 L74 118 M78 122 L74 125 M78 129 L74 132 M78 136 L74 139" stroke="#888" stroke-width="1.5" fill="none"/><rect x="54" y="105" width="60" height="6" rx="2" fill="#1a1a1a"/><rect x="50" y="55" width="68" height="52" rx="10" fill="url(#bd5)"/><rect x="50" y="72" width="68" height="7" fill="#E2001A" opacity=".9"/><path d="M58 55 Q84 38 110 55" stroke="#0D3F7A" stroke-width="9" fill="none" stroke-linecap="round"/><rect x="74" y="62" width="6" height="18" rx="3" fill="#111"/><text x="58" y="90" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Impact wrench / llave impacto
-  if (t.includes('llave') || t.includes('impacto') || t.includes('atornillad')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="12" y="30" width="40" height="14" rx="4" fill="#E2001A" opacity=".85"/>
-      <rect x="52" y="26" width="16" height="22" rx="5" fill="#C8000F"/>
-      <rect x="8" y="33" width="8" height="8" rx="2" fill="#FFBE00"/>
-      <circle cx="60" cy="37" r="5" fill="#E2001A"/>
-      <rect x="65" y="35" width="8" height="4" rx="1" fill="#FF3333"/>
-      <rect x="24" y="44" width="16" height="10" rx="3" fill="#1A1D23"/>
-    </svg>`;
+  if (t.includes('lijadora')) {
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F5F0FF"/><stop offset="100%" stop-color="#EAE0FF"/></linearGradient><linearGradient id="bd6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg6)" rx="8"/><rect x="38" y="110" width="124" height="18" rx="4" fill="#d0d0d0"/><rect x="40" y="112" width="120" height="14" rx="3" fill="#b0b0b0"/><rect x="50" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="62" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="74" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="86" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="98" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="110" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="122" y="114" width="4" height="4" rx="1" fill="#999" opacity=".6"/><rect x="46" y="58" width="108" height="54" rx="10" fill="url(#bd6)"/><rect x="46" y="74" width="108" height="7" fill="#E2001A" opacity=".9"/><rect x="72" y="44" width="56" height="18" rx="8" fill="#0D3F7A"/><text x="56" y="92" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Router / fresadora
-  if (t.includes('fresadora') || t.includes('router')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="36" r="22" fill="#E2001A" opacity=".8"/>
-      <circle cx="40" cy="36" r="14" fill="#C8000F"/>
-      <rect x="36" y="50" width="8" height="18" rx="2" fill="#FF3333"/>
-      <circle cx="40" cy="36" r="5" fill="white" opacity=".6"/>
-    </svg>`;
+  if (t.includes('atornillad') || t.includes('llave') || t.includes('impacto')) {
+    return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0F8FF"/><stop offset="100%" stop-color="#E0EEFF"/></linearGradient><linearGradient id="bd7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bg7)" rx="8"/><rect x="14" y="76" width="32" height="10" rx="2" fill="#555"/><rect x="10" y="78" width="8" height="6" rx="1" fill="#777"/><rect x="44" y="70" width="18" height="22" rx="4" fill="#222"/><rect x="60" y="62" width="76" height="38" rx="8" fill="url(#bd7)"/><rect x="60" y="74" width="76" height="7" fill="#E2001A" opacity=".9"/><path d="M110 100 Q120 112 114 132 Q108 142 98 140 Q88 138 90 124 Q92 112 102 100Z" fill="url(#bd7)"/><rect x="88" y="132" width="30" height="14" rx="4" fill="#0D2A5A"/><rect x="92" y="135" width="8" height="8" rx="1" fill="#38bdf8" opacity=".8"/><rect x="104" y="135" width="8" height="8" rx="1" fill="#38bdf8" opacity=".8"/><rect x="104" y="106" width="6" height="16" rx="3" fill="#111"/><text x="68" y="94" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
   }
-  // Oscillating / multicortadora
-  if (t.includes('multicort') || t.includes('oscilante')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="24" y="12" width="20" height="40" rx="8" fill="#E2001A" opacity=".85"/>
-      <path d="M24 52 L12 68 L56 68 L44 52Z" fill="#C8000F"/>
-      <rect x="28" y="16" width="12" height="24" rx="4" fill="#1A1D23"/>
-      <circle cx="34" cy="28" r="4" fill="#FFBE00"/>
-    </svg>`;
-  }
-  // Vacuum / aspiradora
-  if (t.includes('aspirad')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="40" cy="38" rx="24" ry="22" fill="#E2001A" opacity=".85"/>
-      <ellipse cx="40" cy="38" rx="16" ry="14" fill="#C8000F"/>
-      <rect x="56" y="34" width="16" height="8" rx="3" fill="#FF3333"/>
-      <circle cx="40" cy="38" r="5" fill="white" opacity=".5"/>
-    </svg>`;
-  }
-  // Jigsaw / caladora
-  if (t.includes('caladora')) {
-    return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="16" y="20" width="44" height="22" rx="6" fill="#E2001A" opacity=".85"/>
-      <rect x="20" y="42" width="36" height="6" rx="2" fill="#C8000F"/>
-      <rect x="36" y="48" width="8" height="22" rx="2" fill="#FF3333"/>
-      <path d="M36 58 L44 58" stroke="white" stroke-width="1.5"/>
-      <rect x="22" y="24" width="20" height="10" rx="3" fill="#1A1D23"/>
-    </svg>`;
-  }
-  // Default — generic power tool
-  return `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="28" width="48" height="16" rx="5" fill="#E2001A" opacity=".8"/>
-    <rect x="50" y="22" width="18" height="28" rx="6" fill="#C8000F"/>
-    <rect x="6" y="31" width="10" height="10" rx="3" fill="#FFBE00"/>
-    <circle cx="59" cy="36" r="7" fill="#E2001A"/>
-    <rect x="66" y="33" width="6" height="6" rx="1" fill="#FF3333"/>
-    <rect x="22" y="44" width="20" height="10" rx="3" fill="#1A1D23"/>
-  </svg>`;
+  // Default
+  return `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bgD" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0F6FF"/><stop offset="100%" stop-color="#E0EEFF"/></linearGradient><linearGradient id="bdD" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E5FA8"/><stop offset="100%" stop-color="#0D3F7A"/></linearGradient></defs><rect width="200" height="160" fill="url(#bgD)" rx="8"/><rect x="22" y="74" width="36" height="12" rx="3" fill="#555"/><rect x="16" y="77" width="10" height="6" rx="1" fill="#888"/><rect x="58" y="62" width="80" height="38" rx="8" fill="url(#bdD)"/><rect x="58" y="74" width="80" height="7" fill="#E2001A" opacity=".9"/><rect x="52" y="66" width="14" height="30" rx="4" fill="#222"/><path d="M114 100 Q124 114 118 134 Q112 144 102 142 Q92 140 94 126 Q96 114 106 100Z" fill="url(#bdD)"/><rect x="92" y="134" width="28" height="14" rx="4" fill="#0D2A5A"/><rect x="96" y="137" width="8" height="8" rx="1" fill="#38bdf8" opacity=".7"/><rect x="107" y="137" width="8" height="8" rx="1" fill="#38bdf8" opacity=".7"/><rect x="104" y="106" width="6" height="14" rx="3" fill="#111"/><text x="66" y="94" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" letter-spacing=".5">BOSCH</text></svg>`;
 }
 
-// Extract gallery ID from boschimages URL and build thumbnail URL
 function getBoschImageUrl(galeriaUrl) {
   if (!galeriaUrl) return null;
-  // URL pattern: https://www.boschimages.com/gallery/G0000AiK1z4M8EiI
   const match = galeriaUrl.match(/\/gallery\/([A-Za-z0-9_.]+)/);
   if (!match) return null;
-  const gid = match[1];
-  // Bosch images public thumbnail endpoint
-  return `https://www.boschimages.com/picturePark/${gid}/downloadVersion/Web_L`;
+  return `https://www.boschimages.com/picturePark/${match[1]}/downloadVersion/Web_L`;
 }
+
+
 
 // ============================================================
 //  RESULTS RENDERER
@@ -1077,7 +1000,7 @@ function renderResults(products) {
     const isTop = i === 0;
     const scoreRatio = Math.round((p.score / maxScore) * 100);
     const imgUrl = getBoschImageUrl(p.galeria);
-    const fallbackSVG = getToolSVG(p.tipo);
+    const illustration = getToolIllustration(p.tipo);
 
     // Price block
     let priceHTML = '';
@@ -1107,30 +1030,26 @@ function renderResults(products) {
       ? `<strong>Recomendación #1:</strong> ${usos.split(';')[0] || p.descripcion || 'Herramienta ideal para tu aplicación'}.`
       : (usos.split(';')[0] || p.descripcion || '');
 
-    // Image HTML
+    // Image: try boschimages first, show illustration as background always
     const imgId = `img-${i}`;
-    const fallbackId = `fallback-${i}`;
     const imageHTML = imgUrl
       ? `<img id="${imgId}" class="card-img" src="${imgUrl}"
             alt="${p.modelo || p.tipo}"
-            onload="document.getElementById('${fallbackId}').style.display='none'"
-            onerror="this.style.display='none';document.getElementById('${fallbackId}').style.display='flex'"/>`
+            onload="this.style.opacity='1';this.previousElementSibling.style.opacity='0'"
+            onerror="this.remove()"
+            style="position:absolute;inset:0;opacity:0;z-index:2;transition:opacity .3s"/>`
       : '';
-    const fallbackDisplay = imgUrl ? 'none' : 'flex';
 
     const card = document.createElement('div');
     card.className = 'product-card' + (isTop ? ' top-pick' : '');
     card.innerHTML = `
       <div class="card-image-wrap">
+        <div class="card-illustration" style="width:100%;height:100%;position:relative">${illustration}</div>
         ${imageHTML}
-        <div id="${fallbackId}" class="card-img-fallback" style="display:${fallbackDisplay}">
-          ${fallbackSVG}
-          <span>${p.tipo || 'Herramienta Bosch'}</span>
-        </div>
         <div class="card-image-overlay"></div>
         <span class="card-image-badge ${isTop ? 'top' : 'alt'}">${isTop ? '⭐ Top Pick' : `#${i + 1}`}</span>
         ${p.galeria ? `<a class="card-img-gallery-btn" href="${p.galeria}" target="_blank" rel="noopener">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           Ver galería
         </a>` : ''}
       </div>
