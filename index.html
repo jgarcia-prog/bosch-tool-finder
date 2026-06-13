@@ -1092,6 +1092,8 @@ function renderResults(products) {
     } else {
       priceHTML = `<div class="card-price-wrap"><span class="card-price-unavailable">Consultar precio</span></div>`;
     }
+    // Specs chips
+    const specs = [];
     if (p.fuente) specs.push({ icon: p.fuente === 'Batería' ? '🔋' : '⚡', text: p.fuente });
     if (p.voltaje && p.voltaje !== '') specs.push({ icon: '⚡', text: p.voltaje + ' V' });
     if (p.potencia && p.potencia !== '') specs.push({ icon: '💪', text: p.potencia + ' W' });
