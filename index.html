@@ -391,7 +391,7 @@ body {
   padding: 80px 20px;
 }
 .loading-icon {
-  width: 130px; height: 130px;
+  width: 160px; height: 160px;
   margin: 0 auto 28px;
   position: relative;
   display: flex; align-items: center; justify-content: center;
@@ -399,7 +399,7 @@ body {
 /* Spinning red arc around the logo */
 .loading-icon::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute; inset: -6px;
   border-radius: 50%;
   border: 4px solid var(--gray-100);
   border-top-color: var(--red);
@@ -762,17 +762,55 @@ body {
       <div class="loading-wrap">
         <div class="loading-icon">
           <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- White filled circle background -->
-            <circle cx="55" cy="55" r="53" fill="white" stroke="#E2001A" stroke-width="4"/>
-            <!-- Inner ring -->
-            <circle cx="55" cy="55" r="38" fill="none" stroke="#E2001A" stroke-width="3.5"/>
-            <!-- Bosch H-bolt symbol: two vertical bars + horizontal crossbar -->
-            <!-- Left vertical bar -->
-            <rect x="37" y="37" width="8" height="36" rx="1.5" fill="#E2001A"/>
-            <!-- Right vertical bar -->
-            <rect x="65" y="37" width="8" height="36" rx="1.5" fill="#E2001A"/>
-            <!-- Horizontal crossbar -->
-            <rect x="37" y="51" width="36" height="8" rx="1.5" fill="#E2001A"/>
+            <defs>
+              <clipPath id="circle-clip">
+                <circle cx="55" cy="55" r="52"/>
+              </clipPath>
+              <linearGradient id="c1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8003A"/><stop offset="100%" stop-color="#7B0045"/></linearGradient>
+              <linearGradient id="c2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7B0055"/><stop offset="100%" stop-color="#4B0082"/></linearGradient>
+              <linearGradient id="c3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3B0090"/><stop offset="100%" stop-color="#1A1AAF"/></linearGradient>
+              <linearGradient id="c4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3ABF"/><stop offset="100%" stop-color="#005BB5"/></linearGradient>
+              <linearGradient id="c5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#006AC0"/><stop offset="100%" stop-color="#0080C8"/></linearGradient>
+              <linearGradient id="c6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0090CC"/><stop offset="100%" stop-color="#00A8D0"/></linearGradient>
+              <linearGradient id="c7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00B0C8"/><stop offset="100%" stop-color="#00A898"/></linearGradient>
+              <linearGradient id="c8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00A870"/><stop offset="100%" stop-color="#00A050"/></linearGradient>
+            </defs>
+
+            <!-- Circle border -->
+            <circle cx="55" cy="55" r="52" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+
+            <!-- Colorful top half wave shapes clipped to circle -->
+            <g clip-path="url(#circle-clip)">
+              <!-- Color band 1: red -->
+              <path d="M3 57 Q8 20 18 4 L18 57Z" fill="url(#c1)"/>
+              <!-- Color band 2: purple-red -->
+              <path d="M18 4 Q22 2 26 2 Q24 18 22 57 L18 57Z" fill="url(#c2)"/>
+              <!-- Color band 3: deep purple -->
+              <path d="M26 2 Q32 1 36 1 Q33 20 31 57 L22 57Z" fill="url(#c3)"/>
+              <!-- Color band 4: indigo-blue -->
+              <path d="M36 1 Q42 0 46 0 Q43 22 41 57 L31 57Z" fill="url(#c4)"/>
+              <!-- Color band 5: royal blue -->
+              <path d="M46 0 Q52 0 56 0 Q54 22 52 57 L41 57Z" fill="url(#c5)"/>
+              <!-- Color band 6: mid blue -->
+              <path d="M56 0 Q62 0 66 1 Q63 20 62 57 L52 57Z" fill="url(#c6)"/>
+              <!-- Color band 7: cyan-teal -->
+              <path d="M66 1 Q72 2 76 3 Q73 18 72 57 L62 57Z" fill="url(#c7)"/>
+              <!-- Color band 8: teal-green -->
+              <path d="M76 3 Q84 6 90 12 Q86 22 84 57 L72 57Z" fill="url(#c8)"/>
+              <!-- Color band 9: green fill to right edge -->
+              <path d="M90 12 Q100 22 107 38 L107 57 L84 57Z" fill="#009944"/>
+              <!-- White bottom half -->
+              <rect x="0" y="57" width="110" height="53" fill="white"/>
+            </g>
+
+            <!-- Bosch emblem (⊕ symbol) -->
+            <circle cx="34" cy="77" r="9" fill="none" stroke="#888" stroke-width="1.5"/>
+            <circle cx="34" cy="77" r="5.5" fill="none" stroke="#888" stroke-width="1.5"/>
+            <line x1="34" y1="68" x2="34" y2="86" stroke="#888" stroke-width="1.5"/>
+            <line x1="25" y1="77" x2="43" y2="77" stroke="#888" stroke-width="1.5"/>
+
+            <!-- BOSCH text -->
+            <text x="48" y="83" font-family="Arial Black, Roboto Condensed, sans-serif" font-weight="900" font-size="18" fill="#E2001A" letter-spacing="-0.5">BOSCH</text>
           </svg>
         </div>
         <h2 class="loading-title">Analizando tu perfil...</h2>
